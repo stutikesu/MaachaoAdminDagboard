@@ -13,6 +13,7 @@ import productRoutes from "./routes/productRoutes.js";
 import addonRoutes from "./routes/addonRoutes.js";
 import customerRoutes from "./routes/customerRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
+import deliveryRoutes from "./routes/delivery.js";
 
 dotenv.config();
 
@@ -35,6 +36,8 @@ app.use("/api/products", productRoutes);
 app.use("/api/addons", addonRoutes);
 app.use("/api/customers", customerRoutes);
 app.use("/api/orders", orderRoutes);
+app.use("/api/delivery", deliveryRoutes);
+
 
 // default
 app.get("/", (req, res) => res.send("Maachao admin backend running"));
