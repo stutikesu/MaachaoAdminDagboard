@@ -9,11 +9,16 @@ const ProductSchema = new mongoose.Schema({
   price: { type: Number, default: 0 },
   images: [String],
   addons: [{ type: mongoose.Schema.Types.ObjectId, ref: "Addon" }],
+
+  // ⬇️ Attach multiple slots to this product
+  timeSlots: [{ type: mongoose.Schema.Types.ObjectId, ref: "TimeSlot" }],
+
   isActive: { type: Boolean, default: true },
   isDeleted: { type: Boolean, default: false },
   deletedAt: Date
 }, { timestamps: true });
 
+// Full-text search on name + description
 ProductSchema.index({ name: "text", description: "text" });
 
 export default mongoose.model("Product", ProductSchema);
